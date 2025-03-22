@@ -24,7 +24,7 @@ interface Project {
   demoUrl: string
   codeUrl: string
   category: string
-  icon: JSX.Element 
+  icon: React.ReactNode 
   featured?: boolean
   date: string
 }
