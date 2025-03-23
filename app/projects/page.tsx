@@ -11,6 +11,7 @@ import BackgroundGrid from "@/components/background-grid"
 import CursorEffect from "@/components/cursor-effect"
 import PageTransition from "@/components/page-transition"
 import { LoadingSpinner } from "@/components/loading-spinner"
+import type { ReactNode } from "react" // Add this import
 
 type ProjectCategory = "all" | "web" | "data" | "security" | "game" | "mobile"
 
@@ -24,7 +25,7 @@ interface Project {
   demoUrl: string
   codeUrl: string
   category: string
-  icon: JSX.Element
+  icon: ReactNode // Changed from JSX.Element to ReactNode
   featured?: boolean
   date: string
 }
