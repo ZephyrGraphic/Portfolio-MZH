@@ -18,7 +18,8 @@ export default function Projects() {
       title: "E-commerce Platform",
       description:
         "A full-stack e-commerce platform with product management, cart functionality, and secure payment processing.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["React", "Next.js", "Node.js", "MongoDB", "Stripe"],
       demoUrl: "#",
       codeUrl: "#",
@@ -29,7 +30,8 @@ export default function Projects() {
       title: "Data Visualization Dashboard",
       description:
         "Interactive dashboard for visualizing complex datasets with filtering, sorting, and export capabilities.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["D3.js", "React", "TypeScript", "REST API"],
       demoUrl: "#",
       codeUrl: "#",
@@ -39,7 +41,8 @@ export default function Projects() {
     {
       title: "Secure Authentication System",
       description: "Robust authentication system with multi-factor authentication, JWT, and role-based access control.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["Node.js", "Express", "JWT", "OAuth", "2FA"],
       demoUrl: "#",
       codeUrl: "#",
@@ -49,7 +52,8 @@ export default function Projects() {
     {
       title: "Content Management System",
       description: "Custom CMS with role-based access control, content versioning, and a WYSIWYG editor.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["React", "GraphQL", "PostgreSQL", "AWS"],
       demoUrl: "#",
       codeUrl: "#",

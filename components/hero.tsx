@@ -34,7 +34,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative h-screen flex items-center justify-center bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center bg-no-repeat overflow-hidden"
+      className="relative h-screen flex items-center justify-center bg-[url('/images/hero-bg.png')] bg-cover bg-center bg-no-repeat overflow-hidden"
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black z-0"></div>

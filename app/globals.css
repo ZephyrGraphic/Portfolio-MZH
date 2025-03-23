@@ -124,3 +124,50 @@ html {
   }
 }
 
+/* Edgy photo frame effect */
+.edgy-frame {
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+/* Enhanced glitch lines for images */
+.image-glitch::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(to bottom, transparent 0%, rgba(0, 255, 255, 0.1) 0.5%, transparent 1%);
+  animation: scan 8s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.image-glitch::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 255, 0.2) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(255, 0, 255, 0.2) 100%
+  );
+  z-index: 1;
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+}
+

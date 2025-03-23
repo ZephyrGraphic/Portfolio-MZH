@@ -1,7 +1,15 @@
-export default function LoadingSpinner({ size = "medium" }: { size?: "small" | "medium" | "large" }) {
+"use client"
+
+import type { FC } from "react"
+
+interface LoadingSpinnerProps {
+  size?: "small" | "medium" | "large"
+}
+
+export const LoadingSpinner: FC<LoadingSpinnerProps> = ({ size = "medium" }) => {
   const sizeClasses = {
     small: "h-5 w-5 border-2",
-    medium: "h-8 w-8 border-3",
+    medium: "h-8 w-8 border-[3px]", // Using border-[3px] instead of border-3 which isn't standard
     large: "h-12 w-12 border-4",
   }
 
@@ -13,4 +21,7 @@ export default function LoadingSpinner({ size = "medium" }: { size?: "small" | "
     </div>
   )
 }
+
+// Also export as default for backward compatibility
+export default LoadingSpinner
 

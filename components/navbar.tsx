@@ -10,7 +10,9 @@ import { Menu, X } from "lucide-react"
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
+  const [lastScrollY, setLastScrollY] = useState(0)
   const router = useRouter()
 
   const toggleMenu = () => {
@@ -19,7 +21,22 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      const currentScrollY = window.scrollY
+
+      // Determine if we're scrolling up or down
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setHidden(true)
+      } else {
+        // Scrolling up
+        setHidden(false)
+      }
+
+      // Update last scroll position
+      setLastScrollY(currentScrollY)
+
+      // Set scrolled state for styling
+      if (currentScrollY > 50) {
         setScrolled(true)
       } else {
         setScrolled(false)
@@ -40,7 +57,7 @@ export default function Navbar() {
       }
 
       // If we're at the top, set home as active
-      if (window.scrollY < 100) {
+      if (currentScrollY < 100) {
         setActiveSection("home")
       }
     }
@@ -49,7 +66,7 @@ export default function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [])
+  }, [lastScrollY])
 
   const navItems = [
     { id: "about", label: "About", isPage: false },
@@ -79,44 +96,49 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
         scrolled ? "bg-black/80 backdrop-blur-md border-b border-cyan-500/30" : "bg-transparent"
-      }`}
+      } ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"}`}
     >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-cyan-400 glitch-text">
-          MZH
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              href={item.isPage ? `/${item.id}` : `#${item.id}`}
-              className={`text-gray-300 hover:text-cyan-400 transition-colors relative group ${
-                activeSection === item.id ? "text-cyan-400" : ""
-              }`}
-              onClick={(e) => handleNavClick(e, item)}
-            >
-              <span className="uppercase tracking-wider text-sm font-medium">{item.label}</span>
-              <span
-                className={`absolute -bottom-1 left-0 h-0.5 bg-cyan-400 transition-all duration-300 ${
-                  activeSection === item.id ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              ></span>
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex justify-center items-center">
+          {/* Logo - only visible on mobile */}
+          <div className="md:hidden absolute left-4">
+            <Link href="/" className="text-xl font-bold text-cyan-400 glitch-text">
+              MZH
             </Link>
-          ))}
-        </nav>
+          </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-300 hover:text-cyan-400 transition-colors"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Desktop Navigation - centered */}
+          <nav className="hidden md:flex space-x-1 bg-black/40 backdrop-blur-sm border border-cyan-500/30 p-1 rounded-md mx-auto">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                href={item.isPage ? `/${item.id}` : `#${item.id}`}
+                className={`text-gray-300 hover:text-cyan-400 transition-colors relative group px-4 py-2 ${
+                  activeSection === item.id
+                    ? "bg-cyan-900/40 text-cyan-400 rounded-sm border-t border-r border-cyan-500/50"
+                    : "hover:bg-cyan-900/20"
+                }`}
+                onClick={(e) => handleNavClick(e, item)}
+              >
+                <span className="uppercase tracking-wider text-sm font-medium">{item.label}</span>
+                {activeSection === item.id && (
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400"></span>
+                )}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden absolute right-4 text-gray-300 hover:text-cyan-400 transition-colors"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -127,8 +149,10 @@ export default function Navbar() {
               <Link
                 key={item.id}
                 href={item.isPage ? `/${item.id}` : `#${item.id}`}
-                className={`text-gray-300 hover:text-cyan-400 transition-colors uppercase tracking-wider text-sm font-medium ${
-                  activeSection === item.id ? "text-cyan-400" : ""
+                className={`text-gray-300 hover:text-cyan-400 transition-colors uppercase tracking-wider text-sm font-medium p-2 ${
+                  activeSection === item.id
+                    ? "bg-cyan-900/40 text-cyan-400 rounded-sm border-l-2 border-cyan-500 pl-3"
+                    : "hover:bg-cyan-900/20"
                 }`}
                 onClick={(e) => handleNavClick(e, item)}
               >

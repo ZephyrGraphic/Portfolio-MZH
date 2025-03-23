@@ -6,10 +6,14 @@ import { Badge } from "@/components/ui/badge"
 import { Code, Database, Shield, Gamepad2, Wrench } from "lucide-react"
 import SectionHeading from "./section-heading"
 import { motion, useInView } from "framer-motion"
+import { useReducedMotion } from "@/hooks/use-reduced-motion"
+import { useMobileDetection } from "@/hooks/use-mobile-detection"
 
 export default function Skills() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const prefersReducedMotion = useReducedMotion()
+  const isMobile = useMobileDetection()
 
   const skillCategories = [
     {
@@ -39,35 +43,55 @@ export default function Skills() {
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
+  // Simplified animations for reduced motion or mobile
+  const containerVariants =
+    prefersReducedMotion || isMobile
+      ? {
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }
+      : {
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.1,
+            },
+          },
+        }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
+  const itemVariants =
+    prefersReducedMotion || isMobile
+      ? {
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }
+      : {
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        }
 
   return (
     <section id="skills" className="py-20 bg-gradient-to-b from-gray-900 to-black relative">
       <div className="container mx-auto px-4">
         <SectionHeading title="Skills" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" ref={ref}>
+        <div ref={ref} className="max-w-6xl mx-auto">
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto w-full"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
+            transition={{ duration: isMobile ? 0.3 : 0.5 }}
           >
             {skillCategories.map((category, index) => (
-              <motion.div key={index} variants={itemVariants} className="h-full">
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="h-full"
+                // Add will-change hint for hardware acceleration
+                style={{ willChange: "opacity, transform" }}
+              >
                 <Card className="h-full bg-black/50 border border-cyan-500/30 backdrop-blur-sm hover:shadow-[0_0_15px_rgba(0,255,255,0.15)] transition-all duration-300 hover:translate-y-[-5px]">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-2 mb-4">

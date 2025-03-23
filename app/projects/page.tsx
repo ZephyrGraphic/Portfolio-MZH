@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 import BackgroundGrid from "@/components/background-grid"
 import CursorEffect from "@/components/cursor-effect"
 import PageTransition from "@/components/page-transition"
-import LoadingSpinner from "@/components/loading-spinner"
+import { LoadingSpinner } from "@/components/loading-spinner"
 
 type ProjectCategory = "all" | "web" | "data" | "security" | "game" | "mobile"
 
@@ -24,7 +24,7 @@ interface Project {
   demoUrl: string
   codeUrl: string
   category: string
-  icon: React.ReactNode 
+  icon: JSX.Element
   featured?: boolean
   date: string
 }
@@ -52,7 +52,8 @@ export default function ProjectsPage() {
         "A full-stack e-commerce platform with product management, cart functionality, and secure payment processing.",
       longDescription:
         "This comprehensive e-commerce solution provides businesses with everything they need to sell products online. Features include product catalog management, shopping cart functionality, secure checkout with multiple payment options, order tracking, and customer account management. The platform is built with scalability in mind, allowing it to handle growing product catalogs and increasing traffic.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["React", "Next.js", "Node.js", "MongoDB", "Stripe", "Redux", "Tailwind CSS"],
       demoUrl: "#",
       codeUrl: "#",
@@ -68,7 +69,8 @@ export default function ProjectsPage() {
         "Interactive dashboard for visualizing complex datasets with filtering, sorting, and export capabilities.",
       longDescription:
         "This data visualization dashboard transforms complex datasets into intuitive, interactive visualizations that help users identify trends, patterns, and insights. The dashboard includes customizable charts and graphs, advanced filtering options, data export functionality, and real-time updates. It's designed to be user-friendly while providing powerful analytical capabilities for data-driven decision making.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["D3.js", "React", "TypeScript", "REST API", "Chart.js", "Material UI"],
       demoUrl: "#",
       codeUrl: "#",
@@ -83,7 +85,8 @@ export default function ProjectsPage() {
       description: "Robust authentication system with multi-factor authentication, JWT, and role-based access control.",
       longDescription:
         "This authentication system provides enterprise-grade security for web applications. It features multi-factor authentication, JWT-based session management, role-based access control, secure password policies, account recovery mechanisms, and comprehensive audit logging. The system is designed with security best practices in mind, protecting against common vulnerabilities like CSRF, XSS, and brute force attacks.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["Node.js", "Express", "JWT", "OAuth", "2FA", "bcrypt", "Passport.js"],
       demoUrl: "#",
       codeUrl: "#",
@@ -97,7 +100,8 @@ export default function ProjectsPage() {
       description: "Custom CMS with role-based access control, content versioning, and a WYSIWYG editor.",
       longDescription:
         "This content management system empowers content creators with powerful tools for creating, managing, and publishing digital content. Key features include a user-friendly WYSIWYG editor, content versioning and rollback capabilities, scheduled publishing, media library management, and customizable workflows. The CMS is built with flexibility in mind, allowing it to be adapted for various content types and publishing needs.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["React", "GraphQL", "PostgreSQL", "AWS", "Apollo", "Draft.js"],
       demoUrl: "#",
       codeUrl: "#",
@@ -112,7 +116,8 @@ export default function ProjectsPage() {
         "Comprehensive toolkit for creating and managing game modifications with asset management and scripting support.",
       longDescription:
         "This game modding toolkit simplifies the process of creating, testing, and distributing game modifications. It provides tools for asset extraction and modification, script editing with syntax highlighting, mod packaging and installation, compatibility checking, and community sharing features. The toolkit supports multiple game engines and modding frameworks, making it versatile for different types of game modifications.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["C#", "Unity", "Lua", "JSON", "3D Modeling", "Asset Pipeline"],
       demoUrl: "#",
       codeUrl: "#",
@@ -126,7 +131,8 @@ export default function ProjectsPage() {
       description: "Analytics platform that processes and visualizes data streams in real-time for immediate insights.",
       longDescription:
         "This real-time analytics platform enables businesses to monitor and analyze data as it's generated, providing immediate insights for time-sensitive decision making. The platform includes data stream processing, real-time dashboards with automatic updates, anomaly detection, alerting mechanisms, and historical data comparison. It's designed to handle high-volume data streams while maintaining low latency for critical business operations.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["Kafka", "Spark", "Elasticsearch", "React", "WebSockets", "Python"],
       demoUrl: "#",
       codeUrl: "#",
@@ -140,7 +146,8 @@ export default function ProjectsPage() {
       description: "Cross-platform fitness app with workout tracking, nutrition planning, and progress visualization.",
       longDescription:
         "This mobile fitness application helps users achieve their health and fitness goals through comprehensive workout and nutrition tracking. Features include customizable workout plans, exercise demonstrations, nutrition logging and analysis, progress tracking with visual charts, goal setting, and social sharing capabilities. The app syncs across devices and integrates with popular fitness wearables for a seamless user experience.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["React Native", "Firebase", "Redux", "HealthKit", "Google Fit", "Expo"],
       demoUrl: "#",
       codeUrl: "#",
@@ -155,7 +162,8 @@ export default function ProjectsPage() {
         "Tool for monitoring network traffic, detecting vulnerabilities, and providing security recommendations.",
       longDescription:
         "This network security analysis tool helps organizations identify and address security vulnerabilities in their network infrastructure. It features real-time network traffic monitoring, automated vulnerability scanning, intrusion detection, security policy compliance checking, and detailed reporting with actionable recommendations. The tool is designed to be accessible to security professionals while providing the depth of analysis needed for comprehensive security assessments.",
-      image: "/placeholder.svg?height=400&width=600",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["Python", "Wireshark API", "Machine Learning", "NMAP", "Docker", "Flask"],
       demoUrl: "#",
       codeUrl: "#",
