@@ -72,7 +72,7 @@ export default function EducationPage() {
       id: "smkn-2",
       institution: "SMKN 2 Kota Sukabumi",
       degree: "Rekayasa Perangkat Lunak",
-      period: "Graduated 2021",
+      period: "Graduated 2018",
       location: "Sukabumi, Indonesia",
       description:
         "Completed vocational education in Software Engineering, gaining practical skills in programming, software development methodologies, and database management. The program emphasized hands-on experience and industry-relevant skills.",
@@ -99,7 +99,7 @@ export default function EducationPage() {
       id: "smpn-1",
       institution: "SMPN 1 Kadudampit",
       degree: "Junior High School",
-      period: "Graduated 2018",
+      period: "Graduated 2015",
       location: "Kadudampit, Sukabumi",
       description:
         "Completed junior high school education with a strong academic foundation. Participated in various extracurricular activities that helped develop leadership skills and teamwork abilities.",

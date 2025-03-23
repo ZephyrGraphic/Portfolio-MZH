@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   keywords: "portfolio, web development, programming, data analysis, cybersecurity, game modding",
   authors: [{ name: "M Z Haikal Hamdani" }],
   creator: "M Z Haikal Hamdani",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -32,3 +33,6 @@ export default function RootLayout({
   )
 }
 
+
+
+import './globals.css'

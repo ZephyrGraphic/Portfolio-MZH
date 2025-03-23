@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
-import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward } from "lucide-react"
+import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward, AlertCircle } from "lucide-react"
 
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -11,31 +11,46 @@ export default function MusicPlayer() {
   const [duration, setDuration] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
+  const [audioError, setAudioError] = useState<string | null>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const progressRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
+    // Get the audio element reference
     const audio = audioRef.current
     if (!audio) return
 
     // Set up audio event listeners
     const setAudioData = () => {
       setDuration(audio.duration)
+      setAudioError(null)
     }
 
     const setAudioTime = () => {
       setCurrentTime(audio.currentTime)
     }
 
+    const handleError = () => {
+      console.error("Audio error occurred")
+      setAudioError("Could not load audio file")
+      setIsPlaying(false)
+    }
+
     // Events
     audio.addEventListener("loadeddata", setAudioData)
     audio.addEventListener("timeupdate", setAudioTime)
     audio.addEventListener("ended", () => setIsPlaying(false))
+    audio.addEventListener("error", handleError)
+
+    // Preload the audio
+    audio.load()
 
     return () => {
+      audio.pause()
       audio.removeEventListener("loadeddata", setAudioData)
       audio.removeEventListener("timeupdate", setAudioTime)
       audio.removeEventListener("ended", () => setIsPlaying(false))
+      audio.removeEventListener("error", handleError)
     }
   }, [])
 
@@ -45,10 +60,26 @@ export default function MusicPlayer() {
 
     if (isPlaying) {
       audioRef.current.pause()
+      setIsPlaying(false)
     } else {
-      audioRef.current.play()
+      // Reset error state when trying to play
+      setAudioError(null)
+
+      // Use play() promise to catch any autoplay or other issues
+      const playPromise = audioRef.current.play()
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true)
+          })
+          .catch((error) => {
+            console.error("Play error:", error)
+            setAudioError("Couldn't play audio. Try clicking again.")
+            setIsPlaying(false)
+          })
+      }
     }
-    setIsPlaying(!isPlaying)
   }
 
   // Mute toggle
@@ -65,8 +96,18 @@ export default function MusicPlayer() {
 
     audioRef.current.currentTime = 0
     if (!isPlaying) {
-      audioRef.current.play()
-      setIsPlaying(true)
+      const playPromise = audioRef.current.play()
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true)
+          })
+          .catch((error) => {
+            console.error("Play error:", error)
+            setAudioError("Couldn't play audio. Try clicking again.")
+          })
+      }
     }
   }
 
@@ -90,8 +131,8 @@ export default function MusicPlayer() {
 
   return (
     <div className={`fixed bottom-6 right-6 z-40 transition-all duration-300 ${isExpanded ? "w-64" : "w-12 h-12"}`}>
-      {/* Hidden audio element */}
-      <audio ref={audioRef} src="/audio/background-music.mp3" preload="metadata" />
+      {/* Audio element - visible in the DOM for better browser compatibility */}
+      <audio ref={audioRef} src="/audio/background-music.mp3" preload="metadata" className="hidden" />
 
       {/* Minimized player (icon only) */}
       {!isExpanded && (
@@ -120,6 +161,14 @@ export default function MusicPlayer() {
             <h4 className="text-cyan-400 text-sm font-medium truncate">LiSA - ReawakeR feat. Felix</h4>
             <p className="text-gray-400 text-xs truncate">Background Music</p>
           </div>
+
+          {/* Error message */}
+          {audioError && (
+            <div className="mb-3 text-xs text-red-400 flex items-center">
+              <AlertCircle size={12} className="mr-1" />
+              {audioError}
+            </div>
+          )}
 
           {/* Progress bar */}
           <div

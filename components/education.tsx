@@ -26,13 +26,13 @@ export default function Education() {
     {
       institution: "SMKN 2 Kota Sukabumi",
       degree: "Rekayasa Perangkat Lunak",
-      period: "Graduated 2021",
+      period: "Graduated 2018",
       icon: <GraduationCap className="h-5 w-5" />,
     },
     {
       institution: "SMPN 1 Kadudampit",
       degree: "",
-      period: "Graduated 2018",
+      period: "Graduated 2015",
       icon: <GraduationCap className="h-5 w-5" />,
     },
   ]
