@@ -259,7 +259,7 @@ export default function MusicPlayer() {
               className="text-gray-400 hover:text-cyan-400 transition-colors text-xs"
               aria-label="Minimize player"
             >
-              MIN
+              X
             </button>
           </div>
         </div>
