@@ -27,7 +27,7 @@ export default function About() {
                     <div className="relative w-48 h-48 overflow-hidden edgy-frame image-glitch">
                       {/* The image */}
                       <img
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg"
+                        src="/images/profile-photo.jpeg"
                         alt="M Z Haikal Hamdani"
                         className="w-full h-full object-cover z-0"
                       />

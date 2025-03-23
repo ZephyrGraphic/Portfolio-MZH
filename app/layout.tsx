@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import MusicPlayer from "@/components/music-player"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -12,7 +13,6 @@ export const metadata: Metadata = {
   keywords: "portfolio, web development, programming, data analysis, cybersecurity, game modding",
   authors: [{ name: "M Z Haikal Hamdani" }],
   creator: "M Z Haikal Hamdani",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -25,12 +25,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {children}
+          <MusicPlayer />
         </ThemeProvider>
       </body>
     </html>
   )
 }
 
-
-
-import './globals.css'
