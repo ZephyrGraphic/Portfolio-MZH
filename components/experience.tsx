@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Briefcase, Calendar } from "lucide-react"
-import SectionHeading from "./section-heading"
-import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Briefcase, Calendar } from "lucide-react";
+import SectionHeading from "./section-heading";
+import { motion, useInView } from "framer-motion";
 
 export default function Experience() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <section id="experience" className="py-20 bg-black relative">
@@ -37,9 +37,10 @@ export default function Experience() {
                   <span>Internship Period</span>
                 </div>
                 <p className="text-gray-300">
-                  Gained practical experience in a professional environment, applying technical skills and knowledge in
-                  real-world scenarios. Collaborated with team members on various projects and learned industry best
-                  practices.
+                  Memperoleh pengalaman praktis di lingkungan profesional,
+                  menerapkan keterampilan dan pengetahuan teknis dalam skenario
+                  dunia nyata. Berkolaborasi dengan anggota tim dalam berbagai
+                  proyek dan mempelajari praktik terbaik industri.
                 </p>
               </CardContent>
             </Card>
@@ -47,6 +48,5 @@ export default function Experience() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

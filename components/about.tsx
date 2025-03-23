@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import SectionHeading from "./section-heading"
-import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import SectionHeading from "./section-heading";
+import { motion, useInView } from "framer-motion";
 
 export default function About() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <section id="about" className="py-20 bg-black relative">
@@ -46,20 +46,30 @@ export default function About() {
 
                   <div className="md:w-2/3">
                     <p className="text-lg leading-relaxed mb-4 text-gray-300">
-                      Hello! I'm <span className="text-cyan-400 font-semibold">M Z Haikal Hamdani</span>, a Sistem
-                      Informasi student at Nusa Putra University. I'm passionate about technology, programming, and data
-                      analysis.
+                      Halo! Saya{" "}
+                      <span className="text-cyan-400 font-semibold">
+                        M Z Haikal Hamdani
+                      </span>
+                      , mahasiswa Sistem Informasi di Universitas Nusa Putra.
+                      Saya sangat menyukai teknologi, pemrograman, dan analisis
+                      data.
                     </p>
                     <p className="text-lg leading-relaxed mb-4 text-gray-300">
-                      With experience in programming, data analysis, cybersecurity, and game modding, I bring a diverse
-                      skill set to the table. I've previously interned at{" "}
-                      <span className="text-cyan-400 font-semibold">PT. Jerbee Indonesia</span>, where I gained valuable
-                      industry experience.
+                      Dengan pengalaman dalam pemrograman, analisis data,
+                      keamanan siber, dan modifikasi gim, saya memiliki beragam
+                      keahlian. Sebelumnya saya pernah magang di{" "}
+                      <span className="text-cyan-400 font-semibold">
+                        PT. Jerbee Indonesia
+                      </span>
+                      , tempat saya memperoleh pengalaman berharga di industri
+                      ini.
                     </p>
                     <p className="text-lg leading-relaxed text-gray-300">
-                      I'm currently pursuing my degree in Sistem Informasi, having previously studied Desain Komunikasi
-                      Visual at the same university. I'm always looking to expand my knowledge and take on new
-                      challenges in the tech world.
+                      Saat ini saya sedang menempuh pendidikan di bidang Sistem
+                      Informasi, setelah sebelumnya menempuh pendidikan Desain
+                      Komunikasi Visual di universitas yang sama. Saya selalu
+                      ingin memperluas pengetahuan dan menghadapi tantangan baru
+                      di dunia teknologi.
                     </p>
                   </div>
                 </div>
@@ -69,6 +79,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

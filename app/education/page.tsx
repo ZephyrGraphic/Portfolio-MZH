@@ -29,7 +29,7 @@ export default function EducationPage() {
       period: "2024 - Present",
       location: "Sukabumi, Indonesia",
       description:
-        "Currently pursuing a Bachelor's degree in Information Systems, focusing on data management, system analysis, and software development. The program provides a comprehensive understanding of how information systems support business operations and decision-making processes.",
+        "Saat ini sedang menempuh pendidikan Sarjana di bidang Sistem Informasi, dengan fokus pada manajemen data, analisis sistem, dan pengembangan perangkat lunak. Program ini memberikan pemahaman menyeluruh tentang bagaimana sistem informasi mendukung operasi bisnis dan proses pengambilan keputusan.",
       courses: [
         "Database Management Systems",
         "System Analysis and Design",
@@ -56,7 +56,7 @@ export default function EducationPage() {
       period: "2022 - 2024",
       location: "Sukabumi, Indonesia",
       description:
-        "Studied Visual Communication Design with a focus on digital media, UI/UX design, and graphic design principles. This program provided a strong foundation in visual aesthetics, brand identity development, and digital content creation.",
+        "Mempelajari Desain Komunikasi Visual dengan fokus pada media digital, desain UI/UX, dan prinsip desain grafis. Program ini memberikan dasar yang kuat dalam estetika visual, pengembangan identitas merek, dan pembuatan konten digital.",
       courses: [
         "Typography and Layout Design",
         "Digital Illustration",
@@ -83,7 +83,7 @@ export default function EducationPage() {
       period: "Graduated 2021",
       location: "Sukabumi, Indonesia",
       description:
-        "Completed vocational education in Software Engineering, gaining practical skills in programming, software development methodologies, and database management. The program emphasized hands-on experience and industry-relevant skills.",
+        "Menyelesaikan pendidikan kejuruan di bidang Rekayasa Perangkat Lunak, memperoleh keterampilan praktis dalam pemrograman, metodologi pengembangan perangkat lunak, dan manajemen basis data. Program ini menekankan pengalaman langsung dan keterampilan yang relevan dengan industri.",
       courses: [
         "Object-Oriented Programming",
         "Web Development Fundamentals",
@@ -110,7 +110,7 @@ export default function EducationPage() {
       period: "Graduated 2018",
       location: "Kadudampit, Sukabumi",
       description:
-        "Completed junior high school education with a strong academic foundation. Participated in various extracurricular activities that helped develop leadership skills and teamwork abilities.",
+        "Menyelesaikan pendidikan sekolah menengah pertama dengan landasan akademis yang kuat. Berpartisipasi dalam berbagai kegiatan ekstrakurikuler yang membantu mengembangkan keterampilan kepemimpinan dan kemampuan bekerja sama dalam tim.",
       courses: [
         "Mathematics",
         "Science",
@@ -167,9 +167,9 @@ export default function EducationPage() {
               Education <span className="text-cyan-400">Journey</span>
             </h1>
             <p className="text-gray-300 max-w-3xl">
-              A detailed overview of my academic background, showcasing the
-              institutions, courses, projects, and achievements that have shaped
-              my knowledge and skills in technology and design.
+              Gambaran rinci tentang latar belakang akademis saya, menampilkan
+              institusi, kursus, proyek, dan pencapaian yang telah membentuk
+              pengetahuan dan keterampilan saya dalam teknologi dan desain.
             </p>
           </div>
 

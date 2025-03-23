@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useRef, useEffect, useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Code, Database, Users, Award, Clock } from "lucide-react"
-import SectionHeading from "./section-heading"
-import { motion, useInView } from "framer-motion"
+import { useRef, useEffect, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Code, Database, Users, Award, Clock } from "lucide-react";
+import SectionHeading from "./section-heading";
+import { motion, useInView } from "framer-motion";
 
 // Animated counter component
 const Counter = ({
@@ -15,47 +15,58 @@ const Counter = ({
   title,
   icon,
 }: {
-  value: number
-  duration?: number
-  title: string
-  icon: React.ReactNode
+  value: number;
+  duration?: number;
+  title: string;
+  icon: React.ReactNode;
 }) => {
-  const [count, setCount] = useState(0)
-  const nodeRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(nodeRef, { once: true })
+  const [count, setCount] = useState(0);
+  const nodeRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(nodeRef, { once: true });
 
   useEffect(() => {
-    if (!isInView) return
+    if (!isInView) return;
 
-    let start = 0
-    const end = value
-    const totalMilSecDur = duration
-    const incrementTime = totalMilSecDur / end
+    let start = 0;
+    const end = value;
+    const totalMilSecDur = duration;
+    const incrementTime = totalMilSecDur / end;
 
     const timer = setInterval(() => {
-      start += 1
-      setCount(start)
-      if (start === end) clearInterval(timer)
-    }, incrementTime)
+      start += 1;
+      setCount(start);
+      if (start === end) clearInterval(timer);
+    }, incrementTime);
 
     return () => {
-      clearInterval(timer)
-    }
-  }, [value, duration, isInView])
+      clearInterval(timer);
+    };
+  }, [value, duration, isInView]);
 
   return (
-    <div ref={nodeRef} className="flex flex-col items-center justify-center p-6">
-      <div className="bg-cyan-500/10 p-3 rounded-full text-cyan-400 mb-4">{icon}</div>
+    <div
+      ref={nodeRef}
+      className="flex flex-col items-center justify-center p-6"
+    >
+      <div className="bg-cyan-500/10 p-3 rounded-full text-cyan-400 mb-4">
+        {icon}
+      </div>
       <div className="text-4xl font-bold text-white mb-2">{count}+</div>
       <div className="text-gray-400 text-center">{title}</div>
     </div>
-  )
-}
+  );
+};
 
 // Skill progress bar component
-const SkillBar = ({ skill, percentage }: { skill: string; percentage: number }) => {
-  const barRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(barRef, { once: true })
+const SkillBar = ({
+  skill,
+  percentage,
+}: {
+  skill: string;
+  percentage: number;
+}) => {
+  const barRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(barRef, { once: true });
 
   return (
     <div className="mb-6" ref={barRef}>
@@ -72,19 +83,31 @@ const SkillBar = ({ skill, percentage }: { skill: string; percentage: number }) 
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default function Statistics() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const statsData = [
-    { value: 15, title: "Projects Completed", icon: <Code className="h-6 w-6" /> },
-    { value: 3, title: "Years Experience", icon: <Clock className="h-6 w-6" /> },
-    { value: 10, title: "Satisfied Clients", icon: <Users className="h-6 w-6" /> },
+    {
+      value: 15,
+      title: "Projects Completed",
+      icon: <Code className="h-6 w-6" />,
+    },
+    {
+      value: 3,
+      title: "Years Experience",
+      icon: <Clock className="h-6 w-6" />,
+    },
+    {
+      value: 10,
+      title: "Satisfied Clients",
+      icon: <Users className="h-6 w-6" />,
+    },
     { value: 5, title: "Certifications", icon: <Award className="h-6 w-6" /> },
-  ]
+  ];
 
   const skillsData = [
     { skill: "Web Development", percentage: 90 },
@@ -92,7 +115,7 @@ export default function Statistics() {
     { skill: "Cybersecurity", percentage: 75 },
     { skill: "Game Modding", percentage: 80 },
     { skill: "UI/UX Design", percentage: 70 },
-  ]
+  ];
 
   return (
     <section id="statistics" className="py-20 bg-black relative">
@@ -107,7 +130,11 @@ export default function Statistics() {
                 className="bg-black/50 border border-cyan-500/30 backdrop-blur-sm hover:shadow-[0_0_15px_rgba(0,255,255,0.15)] transition-all duration-300"
               >
                 <CardContent className="p-0">
-                  <Counter value={stat.value} title={stat.title} icon={stat.icon} />
+                  <Counter
+                    value={stat.value}
+                    title={stat.title}
+                    icon={stat.icon}
+                  />
                 </CardContent>
               </Card>
             ))}
@@ -127,7 +154,11 @@ export default function Statistics() {
                 </h3>
                 <div>
                   {skillsData.map((skill, index) => (
-                    <SkillBar key={index} skill={skill.skill} percentage={skill.percentage} />
+                    <SkillBar
+                      key={index}
+                      skill={skill.skill}
+                      percentage={skill.percentage}
+                    />
                   ))}
                 </div>
               </CardContent>
@@ -135,19 +166,25 @@ export default function Statistics() {
 
             <Card className="bg-black/50 border border-cyan-500/30 backdrop-blur-sm hover:shadow-[0_0_15px_rgba(0,255,255,0.15)] transition-all duration-500">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-6 text-white">Professional Summary</h3>
+                <h3 className="text-xl font-bold mb-6 text-white">
+                  Professional Summary
+                </h3>
                 <div className="space-y-4 text-gray-300">
                   <p>
-                    As a dedicated Sistem Informasi student, I've consistently demonstrated strong technical abilities
-                    across multiple domains.
+                    Sebagai mahasiswa Sistem Informasi yang berdedikasi, saya
+                    secara konsisten menunjukkan kemampuan teknis yang kuat di
+                    berbagai domain.
                   </p>
                   <p>
-                    My portfolio showcases a diverse range of skills from programming to cybersecurity, with a proven
-                    track record of delivering high-quality results.
+                    Portofolio saya menunjukkan beragam keterampilan mulai dari
+                    pemrograman hingga keamanan siber, dengan rekam jejak yang
+                    terbukti memberikan hasil berkualitas tinggi.
                   </p>
                   <p>
-                    I pride myself on staying current with emerging technologies and continuously expanding my knowledge
-                    base to remain at the cutting edge of the tech industry.
+                    Saya bangga dengan kemampuan saya untuk selalu mengikuti
+                    perkembangan teknologi baru dan terus memperluas basis
+                    pengetahuan saya agar tetap menjadi yang terdepan dalam
+                    industri teknologi.
                   </p>
                   <div className="pt-4">
                     <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-900/30 text-cyan-400 border border-cyan-500/30">
@@ -162,6 +199,5 @@ export default function Statistics() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
