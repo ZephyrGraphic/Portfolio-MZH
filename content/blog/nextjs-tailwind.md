@@ -2,7 +2,7 @@
 title: "Membangun Website Portfolio dengan Next.js dan Tailwind CSS"
 date: "2023-12-15"
 excerpt: "Panduan langkah demi langkah untuk membuat website portfolio yang menarik menggunakan Next.js dan Tailwind CSS."
-image: "/placeholder.svg?height=400&width=800"
+image: "/images/blog/blog-pic-2.jpeg"
 tags: ["web development", "next.js", "tailwind css", "tutorial"]
 ---
 
@@ -36,3 +36,4 @@ Pertama, buat proyek Next.js baru dengan Tailwind CSS:
 npx create-next-app@latest my-portfolio --typescript --tailwind
 cd my-portfolio
 
+```

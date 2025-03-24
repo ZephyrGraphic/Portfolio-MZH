@@ -2,7 +2,7 @@
 title: "Selamat Datang di Blog Saya"
 date: "2023-12-01"
 excerpt: "Artikel pertama di blog saya, memperkenalkan diri dan tujuan blog ini."
-image: "/placeholder.svg?height=400&width=800"
+image: "/images/blog/blog-pic-1.JPG"
 tags: ["personal", "introduction"]
 ---
 
@@ -36,4 +36,3 @@ Dalam waktu dekat, saya berencana untuk menulis tentang:
 - Tutorial dasar keamanan siber untuk pemula
 - Analisis data sederhana menggunakan Python
 - Dan banyak lagi!
-

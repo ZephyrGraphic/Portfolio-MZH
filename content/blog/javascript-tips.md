@@ -2,7 +2,7 @@
 title: "Tips JavaScript untuk Pengembang Web"
 date: "2023-12-20"
 excerpt: "Beberapa tips dan trik JavaScript yang berguna untuk pengembang web modern."
-image: "/placeholder.svg?height=400&width=800"
+image: "/images/blog/blog-pic-3.png"
 tags: ["javascript", "web development", "tips"]
 ---
 
@@ -16,14 +16,14 @@ Destructuring adalah fitur ES6 yang memungkinkan Anda mengekstrak nilai dari arr
 
 ```javascript
 // Destructuring objek
-const person = { name: 'John', age: 30, job: 'Developer' };
+const person = { name: "John", age: 30, job: "Developer" };
 const { name, age } = person;
 console.log(name); // 'John'
-console.log(age);  // 30
+console.log(age); // 30
 
 // Destructuring array
-const colors = ['red', 'green', 'blue'];
+const colors = ["red", "green", "blue"];
 const [firstColor, secondColor] = colors;
-console.log(firstColor);  // 'red'
+console.log(firstColor); // 'red'
 console.log(secondColor); // 'green'
-
+```
