@@ -1,0 +1,97 @@
+/* Styling untuk code blocks */
+pre {
+  background-color: #1a1a1a;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: rgba(30, 41, 59, 0.8);
+  color: #06b6d4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+}
+
+/* Syntax highlighting - basic */
+.language-javascript,
+.language-js,
+.language-typescript,
+.language-ts {
+  color: #f8f8f2;
+}
+
+.language-javascript .token.keyword,
+.language-js .token.keyword,
+.language-typescript .token.keyword,
+.language-ts .token.keyword {
+  color: #ff79c6;
+}
+
+.language-javascript .token.string,
+.language-js .token.string,
+.language-typescript .token.string,
+.language-ts .token.string {
+  color: #f1fa8c;
+}
+
+.language-javascript .token.comment,
+.language-js .token.comment,
+.language-typescript .token.comment,
+.language-ts .token.comment {
+  color: #6272a4;
+}
+
+.language-javascript .token.function,
+.language-js .token.function,
+.language-typescript .token.function,
+.language-ts .token.function {
+  color: #50fa7b;
+}
+
+.language-javascript .token.number,
+.language-js .token.number,
+.language-typescript .token.number,
+.language-ts .token.number {
+  color: #bd93f9;
+}
+
+/* HTML/XML */
+.language-html .token.tag,
+.language-xml .token.tag {
+  color: #ff79c6;
+}
+
+.language-html .token.attr-name,
+.language-xml .token.attr-name {
+  color: #50fa7b;
+}
+
+.language-html .token.attr-value,
+.language-xml .token.attr-value {
+  color: #f1fa8c;
+}
+
+/* CSS */
+.language-css .token.property {
+  color: #66d9ef;
+}
+
+.language-css .token.selector {
+  color: #ff79c6;
+}
+
+.language-css .token.value {
+  color: #bd93f9;
+}
+

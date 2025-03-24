@@ -29,13 +29,13 @@ export default function BackToTop() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+      className={`fixed bottom-6 left-6 z-50 transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
     >
       <Button
         onClick={scrollToTop}
         size="icon"
         className="h-10 w-10 rounded-full bg-cyan-500/20 border border-cyan-500/50 hover:bg-cyan-500/30 text-cyan-400"
-        aria-label="Back to top"
+        aria-label="Kembali ke atas"
       >
         <ArrowUp className="h-5 w-5" />
       </Button>

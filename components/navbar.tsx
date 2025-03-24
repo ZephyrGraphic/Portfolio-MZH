@@ -43,7 +43,7 @@ export default function Navbar() {
       }
 
       // Update active section based on scroll position
-      const sections = ["about", "education", "experience", "skills", "statistics"]
+      const sections = ["about", "education", "experience", "skills", "projects", "statistics"]
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -69,11 +69,13 @@ export default function Navbar() {
   }, [lastScrollY])
 
   const navItems = [
-    { id: "about", label: "About", isPage: false },
-    { id: "education", label: "Education", isPage: true },
-    { id: "experience", label: "Experience", isPage: true },
-    { id: "skills", label: "Skills", isPage: true },
-    { id: "statistics", label: "Statistics", isPage: false },
+    { id: "about", label: "Tentang", isPage: false },
+    { id: "education", label: "Pendidikan", isPage: true },
+    { id: "experience", label: "Pengalaman", isPage: true },
+    { id: "skills", label: "Keahlian", isPage: true },
+    { id: "projects", label: "Proyek", isPage: true },
+    { id: "blog", label: "Blog", isPage: true },
+    { id: "statistics", label: "Statistik", isPage: false },
   ]
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { id: string; isPage: boolean }) => {

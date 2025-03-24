@@ -29,6 +29,8 @@ export default function Footer() {
     { id: "experience", label: "Pengalaman", isPage: true },
     { id: "skills", label: "Keahlian", isPage: true },
     { id: "projects", label: "Proyek", isPage: true },
+    { id: "blog", label: "Blog", isPage: true },
+    { id: "chat", label: "AI Assistant", isPage: true },
     { id: "statistics", label: "Statistik", isPage: false },
   ]
 

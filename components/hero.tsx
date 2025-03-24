@@ -57,13 +57,13 @@ export default function Hero() {
         <div className="h-8 mb-8">
           <TypeAnimation
             sequence={[
-              "Sistem Informasi Student",
+              "Mahasiswa Sistem Informasi",
               2000,
               "Programmer",
               1000,
-              "Data Analyst",
+              "Analis Data",
               1000,
-              "Cybersecurity Enthusiast",
+              "Penggemar Keamanan Siber",
               1000,
               "Game Modder",
               1000,
@@ -77,13 +77,13 @@ export default function Hero() {
 
         <div className="flex justify-center gap-4">
           <Button className="bg-cyan-500 hover:bg-cyan-600 text-black font-bold px-6 py-2 rounded-full border border-cyan-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] transition-all duration-300">
-            <a href="#about">View Portfolio</a>
+            <a href="#about">Lihat Portfolio</a>
           </Button>
           <Button
             variant="outline"
             className="bg-transparent hover:bg-cyan-950/30 text-cyan-400 font-bold px-6 py-2 rounded-full border border-cyan-500 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.3)] transition-all duration-300"
           >
-            <a href="#contact">Contact Me</a>
+            <a href="#contact">Hubungi Saya</a>
           </Button>
         </div>
       </div>

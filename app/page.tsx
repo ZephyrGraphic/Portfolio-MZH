@@ -1,15 +1,12 @@
 import Hero from "@/components/hero"
 import About from "@/components/about"
-import Education from "@/components/education"
-import Experience from "@/components/experience"
-import Skills from "@/components/skills"
 import Statistics from "@/components/statistics"
 import Footer from "@/components/footer"
 import CursorEffect from "@/components/cursor-effect"
 import BackgroundGrid from "@/components/background-grid"
 import BackToTop from "@/components/back-to-top"
 import PageTransition from "@/components/page-transition"
-import Projects from "@/components/projects"
+import HomeSections from "@/components/home-sections"
 
 export default function Home() {
   return (
@@ -19,10 +16,7 @@ export default function Home() {
       <PageTransition>
         <Hero />
         <About />
-        <Education />
-        <Experience />
-        <Skills />
-        <Projects />
+        <HomeSections />
         <Statistics />
         <Footer />
         <BackToTop />

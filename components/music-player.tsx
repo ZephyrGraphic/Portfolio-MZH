@@ -1,157 +1,138 @@
-"use client";
+"use client"
 
-import type React from "react";
+import type React from "react"
 
-import { useState, useRef, useEffect } from "react";
-import {
-  Play,
-  Pause,
-  Volume2,
-  VolumeX,
-  SkipBack,
-  SkipForward,
-  AlertCircle,
-} from "lucide-react";
+import { useState, useRef, useEffect } from "react"
+import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward, AlertCircle } from "lucide-react"
 
 export default function MusicPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [audioError, setAudioError] = useState<string | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const progressRef = useRef<HTMLDivElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(false)
+  const [duration, setDuration] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [audioError, setAudioError] = useState<string | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const progressRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     // Get the audio element reference
-    const audio = audioRef.current;
-    if (!audio) return;
+    const audio = audioRef.current
+    if (!audio) return
 
     // Set up audio event listeners
     const setAudioData = () => {
-      setDuration(audio.duration);
-      setAudioError(null);
-    };
+      setDuration(audio.duration)
+      setAudioError(null)
+    }
 
     const setAudioTime = () => {
-      setCurrentTime(audio.currentTime);
-    };
+      setCurrentTime(audio.currentTime)
+    }
 
     const handleError = () => {
-      console.error("Audio error occurred");
-      setAudioError("Could not load audio file");
-      setIsPlaying(false);
-    };
+      console.error("Audio error occurred")
+      setAudioError("Tidak dapat memuat file audio")
+      setIsPlaying(false)
+    }
 
     // Events
-    audio.addEventListener("loadeddata", setAudioData);
-    audio.addEventListener("timeupdate", setAudioTime);
-    audio.addEventListener("ended", () => setIsPlaying(false));
-    audio.addEventListener("error", handleError);
+    audio.addEventListener("loadeddata", setAudioData)
+    audio.addEventListener("timeupdate", setAudioTime)
+    audio.addEventListener("ended", () => setIsPlaying(false))
+    audio.addEventListener("error", handleError)
 
     // Preload the audio
-    audio.load();
+    audio.load()
 
     return () => {
-      audio.pause();
-      audio.removeEventListener("loadeddata", setAudioData);
-      audio.removeEventListener("timeupdate", setAudioTime);
-      audio.removeEventListener("ended", () => setIsPlaying(false));
-      audio.removeEventListener("error", handleError);
-    };
-  }, []);
+      audio.pause()
+      audio.removeEventListener("loadeddata", setAudioData)
+      audio.removeEventListener("timeupdate", setAudioTime)
+      audio.removeEventListener("ended", () => setIsPlaying(false))
+      audio.removeEventListener("error", handleError)
+    }
+  }, [])
 
   // Play/Pause toggle
   const togglePlay = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current) return
 
     if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
+      audioRef.current.pause()
+      setIsPlaying(false)
     } else {
       // Reset error state when trying to play
-      setAudioError(null);
+      setAudioError(null)
 
       // Use play() promise to catch any autoplay or other issues
-      const playPromise = audioRef.current.play();
+      const playPromise = audioRef.current.play()
 
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            setIsPlaying(true);
+            setIsPlaying(true)
           })
           .catch((error) => {
-            console.error("Play error:", error);
-            setAudioError("Couldn't play audio. Try clicking again.");
-            setIsPlaying(false);
-          });
+            console.error("Play error:", error)
+            setAudioError("Tidak dapat memutar audio. Coba klik lagi.")
+            setIsPlaying(false)
+          })
       }
     }
-  };
+  }
 
   // Mute toggle
   const toggleMute = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current) return
 
-    audioRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
-  };
+    audioRef.current.muted = !isMuted
+    setIsMuted(!isMuted)
+  }
 
   // Restart track
   const restartTrack = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current) return
 
-    audioRef.current.currentTime = 0;
+    audioRef.current.currentTime = 0
     if (!isPlaying) {
-      const playPromise = audioRef.current.play();
+      const playPromise = audioRef.current.play()
 
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            setIsPlaying(true);
+            setIsPlaying(true)
           })
           .catch((error) => {
-            console.error("Play error:", error);
-            setAudioError("Couldn't play audio. Try clicking again.");
-          });
+            console.error("Play error:", error)
+            setAudioError("Tidak dapat memutar audio. Coba klik lagi.")
+          })
       }
     }
-  };
+  }
 
   // Format time in MM:SS
   const formatTime = (time: number) => {
-    if (isNaN(time)) return "00:00";
+    if (isNaN(time)) return "00:00"
 
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
-  };
+    const minutes = Math.floor(time / 60)
+    const seconds = Math.floor(time % 60)
+    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
+  }
 
   // Handle progress bar click
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!progressRef.current || !audioRef.current) return;
+    if (!progressRef.current || !audioRef.current) return
 
-    const progressRect = progressRef.current.getBoundingClientRect();
-    const percent = (e.clientX - progressRect.left) / progressRect.width;
-    audioRef.current.currentTime = percent * duration;
-  };
+    const progressRect = progressRef.current.getBoundingClientRect()
+    const percent = (e.clientX - progressRect.left) / progressRect.width
+    audioRef.current.currentTime = percent * duration
+  }
 
   return (
-    <div
-      className={`fixed bottom-6 left-6 z-40 transition-all duration-300 ${
-        isExpanded ? "w-64" : "w-12 h-12"
-      }`}
-    >
+    <div className={`fixed bottom-6 right-6 z-40 transition-all duration-300 ${isExpanded ? "w-64" : "w-12 h-12"}`}>
       {/* Audio element - visible in the DOM for better browser compatibility */}
-      <audio
-        ref={audioRef}
-        src="/audio/background-music.mp3"
-        preload="metadata"
-        className="hidden"
-      />
+      <audio ref={audioRef} src="/audio/background-music.mp3" preload="metadata" className="hidden" />
 
       {/* Minimized player (icon only) */}
       {!isExpanded && (
@@ -177,10 +158,8 @@ export default function MusicPlayer() {
 
           {/* Track info */}
           <div className="mb-3 pr-6">
-            <h4 className="text-cyan-400 text-sm font-medium truncate">
-              LiSA - ReawakeR feat. Felix
-            </h4>
-            <p className="text-gray-400 text-xs truncate">Background Music</p>
+            <h4 className="text-cyan-400 text-sm font-medium truncate">LiSA - ReawakeR feat. Felix</h4>
+            <p className="text-gray-400 text-xs truncate">Musik Latar</p>
           </div>
 
           {/* Error message */}
@@ -214,7 +193,7 @@ export default function MusicPlayer() {
             <button
               onClick={restartTrack}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
-              aria-label="Restart track"
+              aria-label="Mulai ulang"
             >
               <SkipBack size={18} />
             </button>
@@ -222,7 +201,7 @@ export default function MusicPlayer() {
             <button
               onClick={togglePlay}
               className="w-10 h-10 bg-cyan-900/50 rounded-full flex items-center justify-center border border-cyan-500/50 hover:bg-cyan-900/70 transition-all"
-              aria-label={isPlaying ? "Pause" : "Play"}
+              aria-label={isPlaying ? "Jeda" : "Putar"}
             >
               {isPlaying ? (
                 <Pause size={18} className="text-cyan-400" />
@@ -234,14 +213,11 @@ export default function MusicPlayer() {
             <button
               onClick={() => {
                 if (audioRef.current) {
-                  audioRef.current.currentTime = Math.min(
-                    audioRef.current.duration,
-                    audioRef.current.currentTime + 10
-                  );
+                  audioRef.current.currentTime = Math.min(audioRef.current.duration, audioRef.current.currentTime + 10)
                 }
               }}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
-              aria-label="Skip forward"
+              aria-label="Lewati 10 detik"
             >
               <SkipForward size={18} />
             </button>
@@ -249,7 +225,7 @@ export default function MusicPlayer() {
             <button
               onClick={toggleMute}
               className="text-gray-400 hover:text-cyan-400 transition-colors"
-              aria-label={isMuted ? "Unmute" : "Mute"}
+              aria-label={isMuted ? "Suarakan" : "Bisukan"}
             >
               {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
             </button>
@@ -257,13 +233,14 @@ export default function MusicPlayer() {
             <button
               onClick={() => setIsExpanded(false)}
               className="text-gray-400 hover:text-cyan-400 transition-colors text-xs"
-              aria-label="Minimize player"
+              aria-label="Kecilkan pemutar"
             >
-              X
+              MIN
             </button>
           </div>
         </div>
       )}
     </div>
-  );
+  )
 }
+

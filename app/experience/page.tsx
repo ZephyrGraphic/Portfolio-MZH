@@ -1,25 +1,17 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  Briefcase,
-  Calendar,
-  ArrowLeft,
-  ChevronRight,
-  MapPin,
-  CheckCircle2,
-  Award,
-} from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
-import BackgroundGrid from "@/components/background-grid";
-import CursorEffect from "@/components/cursor-effect";
+import { useState } from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Briefcase, Calendar, ArrowLeft, ChevronRight, MapPin, CheckCircle2, Award } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Badge } from "@/components/ui/badge"
+import BackgroundGrid from "@/components/background-grid"
+import CursorEffect from "@/components/cursor-effect"
 
 export default function ExperiencePage() {
-  const [activeTab, setActiveTab] = useState("jerbee");
+  const [activeTab, setActiveTab] = useState("jerbee")
 
   const experienceData = [
     {
@@ -30,7 +22,7 @@ export default function ExperiencePage() {
       location: "Jakarta, Indonesia",
       type: "Internship",
       description:
-        "Bekerja sebagai magang pengembangan perangkat lunak, berkontribusi pada pengembangan aplikasi web dan peralatan internal. Berkolaborasi dengan pengembang senior untuk menerapkan fitur baru, memperbaiki bug, dan meningkatkan kinerja aplikasi.",
+        "Worked as a software development intern, contributing to the development of web applications and internal tools. Collaborated with senior developers to implement new features, fix bugs, and improve application performance.",
       responsibilities: [
         "Developed and maintained web applications using React.js and Node.js",
         "Collaborated with the design team to implement responsive UI components",
@@ -39,16 +31,7 @@ export default function ExperiencePage() {
         "Contributed to the development of RESTful APIs for mobile applications",
         "Implemented automated testing for critical application components",
       ],
-      technologies: [
-        "React.js",
-        "Node.js",
-        "Express",
-        "PostgreSQL",
-        "Git",
-        "Docker",
-        "Jest",
-        "RESTful APIs",
-      ],
+      technologies: ["React.js", "Node.js", "Express", "PostgreSQL", "Git", "Docker", "Jest", "RESTful APIs"],
       achievements: [
         "Reduced application load time by 40% through code optimization",
         "Implemented new features that increased user engagement by 25%",
@@ -69,7 +52,7 @@ export default function ExperiencePage() {
       location: "Remote",
       type: "Freelance",
       description:
-        "Bekerja sebagai pengembang web lepas untuk berbagai klien, merancang dan mengembangkan situs web dan aplikasi web yang responsif. Mengelola seluruh siklus pengembangan mulai dari pengumpulan persyaratan hingga penerapan dan pemeliharaan.",
+        "Worked as a freelance web developer for various clients, designing and developing responsive websites and web applications. Managed the entire development lifecycle from requirement gathering to deployment and maintenance.",
       responsibilities: [
         "Designed and developed responsive websites for small businesses and startups",
         "Created custom content management systems tailored to client needs",
@@ -78,16 +61,7 @@ export default function ExperiencePage() {
         "Provided ongoing maintenance and support for client websites",
         "Collaborated with designers to implement visually appealing interfaces",
       ],
-      technologies: [
-        "HTML/CSS",
-        "JavaScript",
-        "React",
-        "Next.js",
-        "WordPress",
-        "Tailwind CSS",
-        "Firebase",
-        "Stripe",
-      ],
+      technologies: ["HTML/CSS", "JavaScript", "React", "Next.js", "WordPress", "Tailwind CSS", "Firebase", "Stripe"],
       achievements: [
         "Completed over 15 successful projects with 100% client satisfaction",
         "Developed an e-commerce platform that increased client sales by 35%",
@@ -102,8 +76,7 @@ export default function ExperiencePage() {
         },
         {
           name: "Portfolio Website for Photography Studio",
-          description:
-            "Created a visually stunning portfolio website with advanced image galleries and contact forms.",
+          description: "Created a visually stunning portfolio website with advanced image galleries and contact forms.",
         },
         {
           name: "Booking System for Local Service Provider",
@@ -120,7 +93,7 @@ export default function ExperiencePage() {
       location: "Sukabumi, Indonesia",
       type: "Volunteer",
       description:
-        "Menjadi sukarelawan sebagai instruktur pemrograman untuk kaum muda kurang mampu, mengajarkan konsep pemrograman dasar hingga menengah. Menggelar lokakarya dan kamp pengkodean untuk menumbuhkan minat terhadap teknologi dan memberikan keterampilan praktis.",
+        "Volunteered as a programming instructor for underprivileged youth, teaching basic to intermediate programming concepts. Organized workshops and coding camps to inspire interest in technology and provide practical skills.",
       responsibilities: [
         "Developed curriculum for introductory programming courses",
         "Conducted weekly classes teaching HTML, CSS, and JavaScript",
@@ -129,14 +102,7 @@ export default function ExperiencePage() {
         "Created learning resources and documentation",
         "Collaborated with other volunteers to improve teaching methodologies",
       ],
-      technologies: [
-        "HTML/CSS",
-        "JavaScript",
-        "Python",
-        "Scratch",
-        "Basic algorithms",
-        "Problem-solving",
-      ],
+      technologies: ["HTML/CSS", "JavaScript", "Python", "Scratch", "Basic algorithms", "Problem-solving"],
       achievements: [
         "Taught programming skills to over 50 students",
         "Several students went on to pursue higher education in computer science",
@@ -146,7 +112,7 @@ export default function ExperiencePage() {
       impact:
         "The program has significantly impacted the local community by providing technology education to students who would otherwise not have access to these resources. Many participants have developed valuable skills that have opened new educational and career opportunities.",
     },
-  ];
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -156,12 +122,12 @@ export default function ExperiencePage() {
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  }
 
   return (
     <main className="min-h-screen bg-black text-white relative overflow-hidden pt-20">
@@ -170,10 +136,7 @@ export default function ExperiencePage() {
 
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
-          <Link
-            href="/"
-            className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors mb-6"
-          >
+          <Link href="/" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Home
           </Link>
@@ -182,9 +145,8 @@ export default function ExperiencePage() {
             Professional <span className="text-cyan-400">Experience</span>
           </h1>
           <p className="text-gray-300 max-w-3xl">
-            Gambaran umum komprehensif tentang perjalanan profesional saya,
-            menyoroti peran utama, tanggung jawab, dan pencapaian yang
-            menunjukkan keahlian dan pertumbuhan saya di bidang teknologi.
+            A comprehensive overview of my professional journey, highlighting key roles, responsibilities, and
+            achievements that demonstrate my expertise and growth in the technology field.
           </p>
         </div>
 
@@ -192,9 +154,7 @@ export default function ExperiencePage() {
           <div className="md:col-span-1">
             <Card className="bg-black/50 border border-cyan-500/30 backdrop-blur-sm sticky top-24">
               <CardContent className="p-4">
-                <h3 className="text-lg font-semibold mb-4 text-cyan-400">
-                  Experience
-                </h3>
+                <h3 className="text-lg font-semibold mb-4 text-cyan-400">Experience</h3>
                 <nav className="flex flex-col space-y-2">
                   {experienceData.map((exp) => (
                     <button
@@ -207,9 +167,7 @@ export default function ExperiencePage() {
                       }`}
                     >
                       <span>{exp.company}</span>
-                      {activeTab === exp.id && (
-                        <ChevronRight className="h-4 w-4" />
-                      )}
+                      {activeTab === exp.id && <ChevronRight className="h-4 w-4" />}
                     </button>
                   ))}
                 </nav>
@@ -218,11 +176,7 @@ export default function ExperiencePage() {
           </div>
 
           <div className="md:col-span-3">
-            <Tabs
-              value={activeTab}
-              onValueChange={setActiveTab}
-              className="w-full"
-            >
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="hidden">
                 {experienceData.map((exp) => (
                   <TabsTrigger key={exp.id} value={exp.id}>
@@ -233,11 +187,7 @@ export default function ExperiencePage() {
 
               {experienceData.map((exp) => (
                 <TabsContent key={exp.id} value={exp.id}>
-                  <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                  >
+                  <motion.div variants={containerVariants} initial="hidden" animate="visible">
                     <Card className="bg-black/50 border border-cyan-500/30 backdrop-blur-sm mb-6 overflow-hidden">
                       <div className="h-2 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
                       <CardHeader>
@@ -256,9 +206,7 @@ export default function ExperiencePage() {
                         <motion.div variants={itemVariants}>
                           <div className="flex items-center gap-2 mb-2">
                             <div className="h-6 w-1 bg-cyan-500 rounded-full"></div>
-                            <h3 className="text-xl font-semibold">
-                              {exp.position}
-                            </h3>
+                            <h3 className="text-xl font-semibold">{exp.position}</h3>
                             <Badge className="ml-2 bg-cyan-900/50 text-cyan-400 border border-cyan-500/30">
                               {exp.type}
                             </Badge>
@@ -276,23 +224,17 @@ export default function ExperiencePage() {
                             Key Responsibilities
                           </h4>
                           <ul className="space-y-2">
-                            {exp.responsibilities.map(
-                              (responsibility, index) => (
-                                <li key={index} className="flex items-start">
-                                  <span className="text-cyan-500 mr-2">•</span>
-                                  <span className="text-gray-300">
-                                    {responsibility}
-                                  </span>
-                                </li>
-                              )
-                            )}
+                            {exp.responsibilities.map((responsibility, index) => (
+                              <li key={index} className="flex items-start">
+                                <span className="text-cyan-500 mr-2">•</span>
+                                <span className="text-gray-300">{responsibility}</span>
+                              </li>
+                            ))}
                           </ul>
                         </motion.div>
 
                         <motion.div variants={itemVariants}>
-                          <h4 className="text-lg font-semibold mb-3 text-cyan-400">
-                            Technologies Used
-                          </h4>
+                          <h4 className="text-lg font-semibold mb-3 text-cyan-400">Technologies Used</h4>
                           <div className="flex flex-wrap gap-2">
                             {exp.technologies.map((tech, index) => (
                               <Badge
@@ -314,9 +256,7 @@ export default function ExperiencePage() {
                             {exp.achievements.map((achievement, index) => (
                               <li key={index} className="flex items-start">
                                 <span className="text-cyan-500 mr-2">•</span>
-                                <span className="text-gray-300">
-                                  {achievement}
-                                </span>
+                                <span className="text-gray-300">{achievement}</span>
                               </li>
                             ))}
                           </ul>
@@ -325,23 +265,15 @@ export default function ExperiencePage() {
                         {exp.testimonial && (
                           <motion.div variants={itemVariants}>
                             <div className="p-4 border border-cyan-500/30 rounded-md bg-cyan-900/10 relative">
-                              <div className="text-5xl absolute top-2 left-2 text-cyan-500/20">
-                                "
-                              </div>
-                              <p className="text-gray-300 italic relative z-10 mb-4">
-                                {exp.testimonial.text}
-                              </p>
+                              <div className="text-5xl absolute top-2 left-2 text-cyan-500/20">"</div>
+                              <p className="text-gray-300 italic relative z-10 mb-4">{exp.testimonial.text}</p>
                               <div className="flex items-center">
                                 <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 mr-2">
                                   {exp.testimonial.author.charAt(0)}
                                 </div>
                                 <div>
-                                  <p className="text-white font-medium">
-                                    {exp.testimonial.author}
-                                  </p>
-                                  <p className="text-gray-400 text-sm">
-                                    {exp.testimonial.position}
-                                  </p>
+                                  <p className="text-white font-medium">{exp.testimonial.author}</p>
+                                  <p className="text-gray-400 text-sm">{exp.testimonial.position}</p>
                                 </div>
                               </div>
                             </div>
@@ -350,21 +282,15 @@ export default function ExperiencePage() {
 
                         {exp.projects && (
                           <motion.div variants={itemVariants}>
-                            <h4 className="text-lg font-semibold mb-3 text-cyan-400">
-                              Notable Projects
-                            </h4>
+                            <h4 className="text-lg font-semibold mb-3 text-cyan-400">Notable Projects</h4>
                             <div className="space-y-3">
                               {exp.projects.map((project, index) => (
                                 <div
                                   key={index}
                                   className="p-3 border border-cyan-500/30 rounded-md bg-cyan-900/10 hover:bg-cyan-900/20 transition-colors"
                                 >
-                                  <h5 className="font-medium text-white mb-1">
-                                    {project.name}
-                                  </h5>
-                                  <p className="text-gray-300">
-                                    {project.description}
-                                  </p>
+                                  <h5 className="font-medium text-white mb-1">{project.name}</h5>
+                                  <p className="text-gray-300">{project.description}</p>
                                 </div>
                               ))}
                             </div>
@@ -373,9 +299,7 @@ export default function ExperiencePage() {
 
                         {exp.impact && (
                           <motion.div variants={itemVariants}>
-                            <h4 className="text-lg font-semibold mb-3 text-cyan-400">
-                              Impact
-                            </h4>
+                            <h4 className="text-lg font-semibold mb-3 text-cyan-400">Impact</h4>
                             <p className="text-gray-300">{exp.impact}</p>
                           </motion.div>
                         )}
@@ -389,5 +313,6 @@ export default function ExperiencePage() {
         </div>
       </div>
     </main>
-  );
+  )
 }
+

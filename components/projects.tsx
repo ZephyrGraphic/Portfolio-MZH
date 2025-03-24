@@ -1,30 +1,23 @@
-"use client";
+"use client"
 
-import { useRef } from "react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  ExternalLink,
-  Github,
-  Code,
-  Layers,
-  Database,
-  Shield,
-} from "lucide-react";
-import SectionHeading from "./section-heading";
-import { motion, useInView } from "framer-motion";
-import Link from "next/link";
+import { useRef } from "react"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { ExternalLink, Github, Code, Layers, Database, Shield } from "lucide-react"
+import SectionHeading from "./section-heading"
+import { motion, useInView } from "framer-motion"
+import Link from "next/link"
 
 export default function Projects() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const projectsData = [
     {
       title: "E-commerce Platform",
       description:
-        "Platform e-commerce lengkap dengan manajemen produk, fungsionalitas keranjang belanja, dan pemrosesan pembayaran yang aman.",
+        "A full-stack e-commerce platform with product management, cart functionality, and secure payment processing.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["React", "Next.js", "Node.js", "MongoDB", "Stripe"],
@@ -36,7 +29,7 @@ export default function Projects() {
     {
       title: "Data Visualization Dashboard",
       description:
-        "Dashboard interaktif untuk memvisualisasikan kumpulan data kompleks dengan kemampuan pemfilteran, pengurutan, dan ekspor.",
+        "Interactive dashboard for visualizing complex datasets with filtering, sorting, and export capabilities.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["D3.js", "React", "TypeScript", "REST API"],
@@ -47,8 +40,7 @@ export default function Projects() {
     },
     {
       title: "Secure Authentication System",
-      description:
-        "Sistem autentikasi yang kuat dengan autentikasi multifaktor, JWT, dan role-based access control.",
+      description: "Robust authentication system with multi-factor authentication, JWT, and role-based access control.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["Node.js", "Express", "JWT", "OAuth", "2FA"],
@@ -59,8 +51,7 @@ export default function Projects() {
     },
     {
       title: "Content Management System",
-      description:
-        "CMS khusus dengan role-based access control., versi konten, dan editor WYSIWYG.",
+      description: "Custom CMS with role-based access control, content versioning, and a WYSIWYG editor.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sung-Jinwoo.jpg-4vwZKpW5lA2R7tHye1MnOOBi1QuPgL.jpeg",
       tags: ["React", "GraphQL", "PostgreSQL", "AWS"],
@@ -69,7 +60,7 @@ export default function Projects() {
       category: "web",
       icon: <Layers className="h-5 w-5" />,
     },
-  ];
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,18 +70,15 @@ export default function Projects() {
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  }
 
   return (
-    <section
-      id="projects"
-      className="py-20 bg-gradient-to-b from-black to-gray-900 relative"
-    >
+    <section id="projects" className="py-20 bg-gradient-to-b from-black to-gray-900 relative">
       <div className="container mx-auto px-4">
         <SectionHeading title="Projects" />
 
@@ -120,9 +108,7 @@ export default function Projects() {
                     <div className="absolute -top-8 right-6 bg-cyan-500/10 p-3 rounded-full text-cyan-400 border border-cyan-500/30 z-20">
                       {project.icon}
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 text-white">
-                      {project.title}
-                    </h3>
+                    <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
                     <p className="text-gray-300 mb-4">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map((tag, tagIndex) => (
@@ -142,25 +128,13 @@ export default function Projects() {
                       className="bg-transparent hover:bg-cyan-950/30 text-cyan-400 border border-cyan-500/50"
                       asChild
                     >
-                      <Link
-                        href={project.codeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <Link href={project.codeUrl} target="_blank" rel="noopener noreferrer">
                         <Github className="h-4 w-4 mr-2" />
                         Code
                       </Link>
                     </Button>
-                    <Button
-                      size="sm"
-                      className="bg-cyan-500 hover:bg-cyan-600 text-black"
-                      asChild
-                    >
-                      <Link
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                    <Button size="sm" className="bg-cyan-500 hover:bg-cyan-600 text-black" asChild>
+                      <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Live Demo
                       </Link>
@@ -182,5 +156,6 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  );
+  )
 }
+

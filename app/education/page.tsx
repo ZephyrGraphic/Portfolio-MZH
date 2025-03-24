@@ -1,25 +1,17 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  GraduationCap,
-  Calendar,
-  ArrowLeft,
-  ChevronRight,
-  FileText,
-  MapPin,
-  Award,
-} from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import BackgroundGrid from "@/components/background-grid";
-import CursorEffect from "@/components/cursor-effect";
-import PageTransition from "@/components/page-transition";
+import { useState } from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { GraduationCap, Calendar, ArrowLeft, ChevronRight, FileText, MapPin, Award } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import BackgroundGrid from "@/components/background-grid"
+import CursorEffect from "@/components/cursor-effect"
+import PageTransition from "@/components/page-transition"
 
 export default function EducationPage() {
-  const [activeTab, setActiveTab] = useState("nusa-putra-si");
+  const [activeTab, setActiveTab] = useState("nusa-putra-si")
 
   const educationData = [
     {
@@ -29,7 +21,7 @@ export default function EducationPage() {
       period: "2024 - Present",
       location: "Sukabumi, Indonesia",
       description:
-        "Saat ini sedang menempuh pendidikan Sarjana di bidang Sistem Informasi, dengan fokus pada manajemen data, analisis sistem, dan pengembangan perangkat lunak. Program ini memberikan pemahaman menyeluruh tentang bagaimana sistem informasi mendukung operasi bisnis dan proses pengambilan keputusan.",
+        "Currently pursuing a Bachelor's degree in Information Systems, focusing on data management, system analysis, and software development. The program provides a comprehensive understanding of how information systems support business operations and decision-making processes.",
       courses: [
         "Database Management Systems",
         "System Analysis and Design",
@@ -56,7 +48,7 @@ export default function EducationPage() {
       period: "2022 - 2024",
       location: "Sukabumi, Indonesia",
       description:
-        "Mempelajari Desain Komunikasi Visual dengan fokus pada media digital, desain UI/UX, dan prinsip desain grafis. Program ini memberikan dasar yang kuat dalam estetika visual, pengembangan identitas merek, dan pembuatan konten digital.",
+        "Studied Visual Communication Design with a focus on digital media, UI/UX design, and graphic design principles. This program provided a strong foundation in visual aesthetics, brand identity development, and digital content creation.",
       courses: [
         "Typography and Layout Design",
         "Digital Illustration",
@@ -80,10 +72,10 @@ export default function EducationPage() {
       id: "smkn-2",
       institution: "SMKN 2 Kota Sukabumi",
       degree: "Rekayasa Perangkat Lunak",
-      period: "Graduated 2021",
+      period: "Graduated 2018",
       location: "Sukabumi, Indonesia",
       description:
-        "Menyelesaikan pendidikan kejuruan di bidang Rekayasa Perangkat Lunak, memperoleh keterampilan praktis dalam pemrograman, metodologi pengembangan perangkat lunak, dan manajemen basis data. Program ini menekankan pengalaman langsung dan keterampilan yang relevan dengan industri.",
+        "Completed vocational education in Software Engineering, gaining practical skills in programming, software development methodologies, and database management. The program emphasized hands-on experience and industry-relevant skills.",
       courses: [
         "Object-Oriented Programming",
         "Web Development Fundamentals",
@@ -107,10 +99,10 @@ export default function EducationPage() {
       id: "smpn-1",
       institution: "SMPN 1 Kadudampit",
       degree: "Junior High School",
-      period: "Graduated 2018",
+      period: "Graduated 2015",
       location: "Kadudampit, Sukabumi",
       description:
-        "Menyelesaikan pendidikan sekolah menengah pertama dengan landasan akademis yang kuat. Berpartisipasi dalam berbagai kegiatan ekstrakurikuler yang membantu mengembangkan keterampilan kepemimpinan dan kemampuan bekerja sama dalam tim.",
+        "Completed junior high school education with a strong academic foundation. Participated in various extracurricular activities that helped develop leadership skills and teamwork abilities.",
       courses: [
         "Mathematics",
         "Science",
@@ -119,18 +111,14 @@ export default function EducationPage() {
         "Social Studies",
         "Arts and Culture",
       ],
-      projects: [
-        "Science fair project on renewable energy",
-        "School newspaper contributor",
-        "Computer club member",
-      ],
+      projects: ["Science fair project on renewable energy", "School newspaper contributor", "Computer club member"],
       achievements: [
         "Academic excellence award",
         "Active participant in school competitions",
         "Leadership role in student organizations",
       ],
     },
-  ];
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -140,12 +128,12 @@ export default function EducationPage() {
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  }
 
   return (
     <main className="min-h-screen bg-black text-white relative overflow-hidden pt-20">
@@ -167,9 +155,8 @@ export default function EducationPage() {
               Education <span className="text-cyan-400">Journey</span>
             </h1>
             <p className="text-gray-300 max-w-3xl">
-              Gambaran rinci tentang latar belakang akademis saya, menampilkan
-              institusi, kursus, proyek, dan pencapaian yang telah membentuk
-              pengetahuan dan keterampilan saya dalam teknologi dan desain.
+              A detailed overview of my academic background, showcasing the institutions, courses, projects, and
+              achievements that have shaped my knowledge and skills in technology and design.
             </p>
           </div>
 
@@ -177,9 +164,7 @@ export default function EducationPage() {
             <div className="md:col-span-1">
               <Card className="bg-black/50 border border-cyan-500/30 backdrop-blur-sm sticky top-24">
                 <CardContent className="p-4">
-                  <h3 className="text-lg font-semibold mb-4 text-cyan-400">
-                    Institutions
-                  </h3>
+                  <h3 className="text-lg font-semibold mb-4 text-cyan-400">Institutions</h3>
                   <nav className="flex flex-col space-y-2">
                     {educationData.map((edu) => (
                       <button
@@ -192,9 +177,7 @@ export default function EducationPage() {
                         }`}
                       >
                         <span>{edu.institution}</span>
-                        {activeTab === edu.id && (
-                          <ChevronRight className="h-4 w-4" />
-                        )}
+                        {activeTab === edu.id && <ChevronRight className="h-4 w-4" />}
                       </button>
                     ))}
                   </nav>
@@ -203,11 +186,7 @@ export default function EducationPage() {
             </div>
 
             <div className="md:col-span-3">
-              <Tabs
-                value={activeTab}
-                onValueChange={setActiveTab}
-                className="w-full"
-              >
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                 <TabsList className="hidden">
                   {educationData.map((edu) => (
                     <TabsTrigger key={edu.id} value={edu.id}>
@@ -218,11 +197,7 @@ export default function EducationPage() {
 
                 {educationData.map((edu) => (
                   <TabsContent key={edu.id} value={edu.id}>
-                    <motion.div
-                      variants={containerVariants}
-                      initial="hidden"
-                      animate="visible"
-                    >
+                    <motion.div variants={containerVariants} initial="hidden" animate="visible">
                       <Card className="bg-black/50 border border-cyan-500/30 backdrop-blur-sm mb-6 overflow-hidden">
                         <div className="h-2 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
                         <CardHeader>
@@ -241,9 +216,7 @@ export default function EducationPage() {
                           <motion.div variants={itemVariants}>
                             <div className="flex items-center gap-2 mb-2">
                               <div className="h-6 w-1 bg-cyan-500 rounded-full"></div>
-                              <h3 className="text-xl font-semibold">
-                                {edu.degree}
-                              </h3>
+                              <h3 className="text-xl font-semibold">{edu.degree}</h3>
                             </div>
                             <div className="flex items-center text-gray-400 mb-4">
                               <MapPin className="h-4 w-4 mr-1" />
@@ -252,10 +225,7 @@ export default function EducationPage() {
                             <p className="text-gray-300">{edu.description}</p>
                           </motion.div>
 
-                          <motion.div
-                            variants={itemVariants}
-                            className="grid md:grid-cols-2 gap-6"
-                          >
+                          <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-6">
                             <div>
                               <h4 className="text-lg font-semibold mb-3 flex items-center text-cyan-400">
                                 <FileText className="h-5 w-5 mr-2" />
@@ -264,12 +234,8 @@ export default function EducationPage() {
                               <ul className="space-y-2">
                                 {edu.courses.map((course, index) => (
                                   <li key={index} className="flex items-start">
-                                    <span className="text-cyan-500 mr-2">
-                                      •
-                                    </span>
-                                    <span className="text-gray-300">
-                                      {course}
-                                    </span>
+                                    <span className="text-cyan-500 mr-2">•</span>
+                                    <span className="text-gray-300">{course}</span>
                                   </li>
                                 ))}
                               </ul>
@@ -283,12 +249,8 @@ export default function EducationPage() {
                               <ul className="space-y-2">
                                 {edu.achievements.map((achievement, index) => (
                                   <li key={index} className="flex items-start">
-                                    <span className="text-cyan-500 mr-2">
-                                      •
-                                    </span>
-                                    <span className="text-gray-300">
-                                      {achievement}
-                                    </span>
+                                    <span className="text-cyan-500 mr-2">•</span>
+                                    <span className="text-gray-300">{achievement}</span>
                                   </li>
                                 ))}
                               </ul>
@@ -296,9 +258,7 @@ export default function EducationPage() {
                           </motion.div>
 
                           <motion.div variants={itemVariants}>
-                            <h4 className="text-lg font-semibold mb-3 text-cyan-400">
-                              Notable Projects
-                            </h4>
+                            <h4 className="text-lg font-semibold mb-3 text-cyan-400">Notable Projects</h4>
                             <div className="space-y-3">
                               {edu.projects.map((project, index) => (
                                 <div
@@ -321,5 +281,6 @@ export default function EducationPage() {
         </div>
       </PageTransition>
     </main>
-  );
+  )
 }
+
