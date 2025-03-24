@@ -26,6 +26,9 @@ export async function getAllPosts(): Promise<Post[]> {
     }
 
     const fileNames = fs.readdirSync(postsDirectory)
+    
+    // Track slugs to avoid duplicates
+    const slugsSet = new Set<string>()
     const allPostsData = fileNames
       .filter((fileName) => {
         return fileName.endsWith(".mdx") || fileName.endsWith(".md")
@@ -56,6 +59,14 @@ export async function getAllPosts(): Promise<Post[]> {
           tags: data.tags || [],
           readingTime: `${readingTimeText}`,
         }
+      })
+      .filter(post => {
+        // Check if we've seen this slug before
+        if (slugsSet.has(post.slug)) {
+          return false // Skip this post
+        }
+        slugsSet.add(post.slug)
+        return true
       })
 
     // Sort posts by date

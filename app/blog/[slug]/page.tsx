@@ -6,13 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import BackgroundGrid from "@/components/background-grid"
 import CursorEffect from "@/components/cursor-effect"
 import PageTransition from "@/components/page-transition"
-import dynamic from "next/dynamic"
-
-// Dynamically import the MarkdownContent component to avoid SSR issues
-const MarkdownContent = dynamic(() => import("@/components/markdown-content"), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800/50 h-96 rounded-md"></div>,
-})
+import BlogContent from "@/components/blog-content"
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = await getPostBySlug(params.slug)
@@ -108,7 +102,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             </div>
 
             <div className="prose prose-invert prose-cyan max-w-none">
-              <MarkdownContent content={post.content} />
+              <BlogContent content={post.content} />
             </div>
           </div>
         </article>
